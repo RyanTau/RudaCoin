@@ -1,6 +1,7 @@
 import hashlib
 from datetime import datetime
 import binascii
+from msilib.schema import ODBCAttribute
 from numpy import broadcast, true_divide
 class Block:
     def __init__(self, index, hash, previous_hash, timestamp, data, difficulty, nonce):
@@ -116,5 +117,24 @@ def isValidTimestamp(newBlock, previousBlock):
     return (previousBlock.timestamp -60 < newBlock.timestamp and newBlock.timestamp - 60 < datetime.now().time() )
 
 
+'''Transactions'''
+
+class TxOut:
+    def __init__(self,address, amount):
+        self.address = address
+        self.amount = amount
+class TxIn:
+    def __init__(self, txOutId, txOutIndex, signature):
+        self.txOutId = txOutId
+        self.txOutIndex = txOutIndex
+        self.signature = signature
+
+class transactions:
+    def __init__(self,id,txIns,txOuts):
+        self.id = id 
+        self.txIns = txIns
+        self.txOuts = txOuts
 
 
+def getTransactionId(transaction):
+    
