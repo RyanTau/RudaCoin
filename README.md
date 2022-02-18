@@ -1,2 +1,4 @@
-# BlockChain
- a rudamentary BlockChain with transactions
+# Python BlockChain
+ a rudamentary BlockChain
+ 
+ further implementation in progress
